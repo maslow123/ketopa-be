@@ -1,0 +1,32 @@
+{
+  "name": "simplecom-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:maslow123/simplecom-be.git",
+  "author": "fadhly <muhammad.rizqi@mncgroup.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js "
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "global": "^4.4.0",
+    "jes": "^0.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "mysql2-promise": "^0.1.4",
+    "path": "^0.12.7",
+    "sha256": "^0.2.0",
+    "supertest": "^6.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
