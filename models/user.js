@@ -33,6 +33,7 @@ exports.default = class User extends DBTable {
         if (results[0].length < 1) {
             return -1;
         }
+
         let result = results[0][0];
         this.id = result.id;
         this.username = result.username;
@@ -44,13 +45,12 @@ exports.default = class User extends DBTable {
     } 
 
     login = async () => {
-
         const q = `
             SELECT * 
             FROM users
-            WHERE username = ? AND password = ? AND level = ?
+            WHERE username = ? AND password = ?
         `
-        const results = await conn.query(q, [this.username, this.password, this.level]);
+        const results = await conn.query(q, [this.username, this.password]);
         if (results[0].length < 1) {
             return false;
         }

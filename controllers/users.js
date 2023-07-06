@@ -58,21 +58,19 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        const { username, password, level } = req.body;    
+        const { username, password } = req.body;    
         if(!username) {
             return response.falseRequirement(res, 'username');
         }
         if(!password) {
             return response.falseRequirement(res, 'password');
-        }
-        if(level === null || level === undefined) {
-            return response.falseRequirement(res, 'level');
-        }
+        }        
 
         const hashPassword = sha256(password);
-        let user = new User("", username, hashPassword, level, 0, 
+        let user = new User("", username, hashPassword, 0, 0, 
         "", 0);
         const result = await user.login();
+        console.log({ result })
         if(!result) {
             return response.loginFailed(res);
         }
