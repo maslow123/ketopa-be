@@ -16,11 +16,12 @@ exports.default = class Product extends DBTable {
     }
 
     create = async () => {
+        console.log(this)
         const q = `
             INSERT INTO products 
             (category_id, name, image, price, stock, created_at, created_by) 
             VALUES 
-            (?, ?, ?, ?, ?, ?, now(), ?)
+            (?, ?, ?, ?, ?, now(), ?)
         `;
         const results = await conn.query(q, [this.category.id, this.name, this.image, this.price, this.stock, this.created_by.id]);
         this.id = results[0].insertId;
