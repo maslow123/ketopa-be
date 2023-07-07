@@ -140,7 +140,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"admin1edited\",\n    \"password\": \"11111\",\n    \"level\": 1\n}",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"11111\",\n    \"level\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"11111\",\n    \"level\": 0\n}",
+							"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"11111\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -179,13 +179,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://simplecom-be.vercel.app/api/v1/user/login",
-							"protocol": "https",
+							"raw": "localhost:8000/api/v1/user/login",
 							"host": [
-								"simplecom-be",
-								"vercel",
-								"app"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"v1",
@@ -341,7 +339,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"category_id\":8,\n    \"name\": \"Produk 1\",\n    \"image\": \"https://picsum.photos/200/300\",\n    \"description\": \"Produk 1 description\",\n    \"price\": 500000,\n    \"created_by\":29,\n    \"stock\": 100\n}",
+							"raw": "{\n    \"category_id\":8,\n    \"name\": \"Produk 1\",\n    \"image\": \"https://picsum.photos/200/300\",\n    \"price\": 500000,\n    \"created_by\":29,\n    \"stock\": 100\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -424,7 +422,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/product/23",
+							"raw": "http://localhost:8000/api/v1/product/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -434,7 +432,7 @@
 								"api",
 								"v1",
 								"product",
-								"23"
+								"24"
 							]
 						}
 					},
@@ -452,7 +450,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"product_id\": 1,\n    \"user_id\": 2,\n    \"quantity\": 3,\n    \"status\": 0,\n    \"evidence\": \"http://omama/getnada.png\"\n}",
+							"raw": "{\n    \"user_id\": 1,\n    \"products\": [\n        {\n            \"product_id\": 5,\n            \"quantity\": 7,\n            \"total_amount\": 7000\n        },\n        {\n            \"product_id\": 6,\n            \"quantity\": 5,\n            \"total_amount\": 10000\n        }\n    ],\n    \"evidence\": \"xxx.png\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -513,7 +511,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/transaction/list",
+							"raw": "http://localhost:8000/api/v1/transaction/list?user_id=0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -524,6 +522,12 @@
 								"v1",
 								"transaction",
 								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "0"
+								}
 							]
 						}
 					},
