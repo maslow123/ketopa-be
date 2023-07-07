@@ -5,6 +5,7 @@ const helper = require('../helpers/helper');
 const getAllTransaction = async (req, res) => {
     try {
         const { start_date, end_date, user_id } = req.query;
+        console.log({ user_id})
         let results = await Transaction.getAll(start_date, end_date, user_id);
         if (results.length < 1) {
             return response.notFound(res);

@@ -94,7 +94,7 @@ exports.default = class Transaction extends DBTable {
         if (startDate && endDate) {
             where = `WHERE created_at BETWEEN '${startDate} 00:00:00' AND '${endDate} 23:59:59'`;
         }
-        if (userId) {
+        if (userId && userId != '0') {
             where = `WHERE user_id = ${userId}`;
         }
 
