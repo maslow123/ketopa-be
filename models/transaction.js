@@ -92,10 +92,10 @@ exports.default = class Transaction extends DBTable {
     static getAll = async (startDate, endDate, userId) => {
         let where = ``;
         if (startDate && endDate) {
-            where = `WHERE t.created_at BETWEEN '${startDate} 00:00:00' AND '${endDate} 23:59:59'`;
+            where = `WHERE created_at BETWEEN '${startDate} 00:00:00' AND '${endDate} 23:59:59'`;
         }
         if (userId) {
-            where = `WHERE t.user_id = ${userId}`;
+            where = `WHERE user_id = ${userId}`;
         }
 
         // group by 
@@ -137,7 +137,7 @@ exports.default = class Transaction extends DBTable {
                 WHERE t.transaction_code = '${transaction_code}' 
                 ORDER BY status ASC
             `;
-
+            
             const r = await conn.query(q2, []);
             if (r[0].length < 1) {
                 return [];
